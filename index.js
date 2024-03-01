@@ -36,26 +36,22 @@ app.use(cors());
 // Define your routes and middleware here
 app.use(express.json());
 
-app.get("/api", (req, res) => {
-  courseModel
-    .find({})
-    .then((data) => {
-      res.json({
-        message: "course get successfully",
-        data: data,
-        status: true,
-      });
-      console.log("course get successfully:", data);
-    })
-    .catch((error) => {
-      res.json({
-        message: "error",
-        error: error,
-        status: false,
-      });
-      console.error("Failed to get course:", error);
+app.get("/api", async (req, res) => {
+  try {
+    const data = await courseModel.find({});
+    res.json({
+      message: "Courses retrieved successfully",
+      data,
+      status: true,
     });
-
+  } catch (error) {
+    console.error("Error retrieving courses:", error);
+    res.status(500).json({
+      message: "Internal Server Error",
+      error: error.message, // Only provide limited error details for security
+      status: false,
+    });
+  }
 });
 
 // ==================================================================================

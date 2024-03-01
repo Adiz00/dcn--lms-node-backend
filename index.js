@@ -37,7 +37,25 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/api", (req, res) => {
-  res.send("Express on Vercel");
+  courseModel
+    .find({})
+    .then((data) => {
+      res.json({
+        message: "course get successfully",
+        data: data,
+        status: true,
+      });
+      console.log("course get successfully:", data);
+    })
+    .catch((error) => {
+      res.json({
+        message: "error",
+        error: error,
+        status: false,
+      });
+      console.error("Failed to get course:", error);
+    });
+
 });
 
 // ==================================================================================

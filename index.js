@@ -590,3 +590,6 @@ app.post("/api/announcement", (req, res) => {
 });
 
 // ============    ==============================================
+
+// Export the Express API
+module.exports = app;

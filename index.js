@@ -36,7 +36,7 @@ app.use(cors());
 // Define your routes and middleware here
 app.use(express.json());
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.send("Express on Vercel");
 });
 

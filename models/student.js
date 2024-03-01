@@ -5,6 +5,7 @@ const studentSchema = mongoose.Schema({
     std_email: String,
     std_password: String,
     std_course: String,
+    std_Institute: String,
     active: { type: Boolean, default: true },
     approved: { type: Boolean, default: true },
     grades: { type: Array, default: [] } // Add a field for grades as an empty array

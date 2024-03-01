@@ -5,6 +5,7 @@ const teacherSchema = mongoose.Schema({
     teacher_email: String,
     teacher_password: String,
     teacher_course: String,
+    teacher_Institute: String,
     active: { type: Boolean, default: true },
     approved: { type: Boolean, default: true },
   });

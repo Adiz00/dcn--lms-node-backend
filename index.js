@@ -36,6 +36,11 @@ app.use(cors());
 // Define your routes and middleware here
 app.use(express.json());
 
+
+// ==================================================================================
+// ============   TEST api  ==============================================
+// ==================================================================================
+
 app.get("/api", async (req, res) => {
   try {
     const data = await courseModel.find({});
@@ -610,4 +615,4 @@ app.post("/api/announcement", (req, res) => {
 // ============    ==============================================
 
 // Export the Express API
-module.exports = app;
+// module.exports = app;
